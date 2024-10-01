@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'Minecraft';
+    src: url('Fonts/Minecraft.ttf')
+}
+@font-face {
+    font-family: 'MinecrafterAlt';
+    src: url('Fonts/Minecrafter.Alt.ttf')
+}
+@font-face {
+    font-family: 'MinecrafterReg';
+    src: url('Fonts/Minecrafter.Reg.ttf')
+}
+h1 {
+    font-family: 'MinecrafterAlt', Arial, sans-serif;
+}
+h2 {
+    font-family: 'MinecrafterReg', Arial, sans-serif;
+}
+p {
+    font-family: 'Minecraft', Arial, sans-serif;
+}
+
