@@ -6,10 +6,10 @@ How to Install
 First download and Install Node.JS
 https://nodejs.org/en
 
-Then install the electron Framework
+Then install the electron Framework:
 npm install -g electron
 
-Run it via
+Run it via:
 electron index.html
 
 if it doesn't work use:
