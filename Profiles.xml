@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profiles>
+    <profile>
+        <name>Peter</name>
+    </profile>
+    <profile>
+        <name>Anna</name>
+    </profile>
+    <profile>
+        <name>Max</name>
+    </profile>
+</profiles>
