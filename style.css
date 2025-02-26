@@ -1,48 +1,134 @@
+:root {
+    --scale-factor: 2;
+}
+
+
 @font-face {
     font-family: 'Minecraft';
-    src: url('Fonts/Minecraft.ttf')
+    src: url('Fonts/Minecraft.ttf');
 }
 @font-face {
     font-family: 'MinecrafterAlt';
-    src: url('Fonts/Minecrafter.Alt.ttf')
+    src: url('Fonts/Minecrafter.Alt.ttf');
 }
 @font-face {
     font-family: 'MinecrafterReg';
-    src: url('Fonts/Minecrafter.Reg.ttf')
+    src: url('Fonts/Minecrafter.Reg.ttf');
 }
-h1 {
-    font-family: 'MinecrafterAlt', Arial, sans-serif;
-}
-h2 {
-    font-family: 'MinecrafterReg', Arial, sans-serif;
-}
-p {
-    font-family: 'Minecraft', Arial, sans-serif;
-}
+
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
     background-color: #f4f4f4;
+    display: flex;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.sidebar {
+    font-size: calc(16px * var(--scale-factor));
+    padding: calc(15px * var(--scale-factor));
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    transition: width 0.3s ease-in-out;
+    z-index: 100; /* Damit die Sidebar über dem Inhalt liegt */
+}
+
+.sidebar.collapsed {
+    width: 50px; /* Sidebar wird eingeclappt */
+    font-family: 'Minecraft', sans-serif; /* Minecraft-Schriftart */
+}
+
+.sidebar .btn {
+    background-color: #444;
+    color: white;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: calc(16px * var(--scale-factor));
+    padding: calc(10px * var(--scale-factor));
+    transition: all 0.3s;
+    font-family: 'Minecraft', Arial, sans-serif;
+}
+
+.sidebar .btn:hover {
+    background-color: #555;
+}
+
+.sidebar.collapsed .btn {
+    display: none;
+}
+
+.sidebar.collapsed .sidebar-toggle-btn {
+    display: block;
+}
+
+.sidebar.collapsed + .sidebar-toggle-btn {
+    transform: translateX(0) rotate(180deg);
+}
+
+.sidebar-toggle-btn {
+    background-color: #333;
+    color: white;
+    text-align: right;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: calc(16px * var(--scale-factor));
+    padding: calc(10px * var(--scale-factor));
+    transform: rotate(0deg);
+    transition: transform 0.3s ease-in-out;
+
+}
+
+.sidebar-toggle-btn:hover {
+    color: lightgray;
+}
+
+
+.sidebar.collapsed + .sidebar-toggle-btn {
+    transform: rotate(180deg); /* Pfeil zeigt nach links */
 }
 
 .container {
+    margin-left: 220px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: calc(100% - 220px);
+    padding: 20px;
+}
+
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 220px;
+    width: calc(100% - 220px);
+    padding: 10px;
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .load-btn {
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: calc(10px * var(--scale-factor)) calc(20px * var(--scale-factor));
+    font-size: calc(16px * var(--scale-factor));
     background-color: #4CAF50;
     color: white;
     border: none;
     cursor: pointer;
     margin-left: 20px;
+    font-family: 'MinecrafterAlt', sans-serif;
 }
 
 .load-btn:hover {
@@ -63,6 +149,7 @@ body {
     cursor: pointer;
     display: flex;
     align-items: center;
+    font-family: 'MinecrafterAlt', sans-serif;
 }
 
 .dropbtn img {
@@ -74,7 +161,7 @@ body {
 .dropdown-content {
     display: none;
     position: absolute;
-    bottom: 100%; /* Klappt nach oben aus */
+    bottom: 100%;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -92,6 +179,7 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
+    font-family: 'Minecraft', sans-serif;
 }
 
 .dropdown-content div:hover {

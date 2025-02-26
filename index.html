@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css">
-        <title>Minecraft Profile Manager</title>
-    </head>
-    <body>
-        <div class="container"></div>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Minecraft Profile Manager</title>
+</head>
+<body>
+<div class="sidebar">
+    <button class="sidebar-toggle-btn" id="toggle-sidebar-btn">▶</button>
+    <button class="btn">Start Screen</button>
+    <button class="btn">Texture Packs</button>
+    <button class="btn">Mods</button>
+    <button class="btn">Shaders</button>
+    <button class="btn">MC Config</button>
+    <button class="btn">Data Packs</button>
+</div>
+<div class="container">
+    <div class="bottom-bar">
         <div class="dropdown">
             <button class="dropbtn" id="selected-profile">
-                <!-- Hier wird das ausgewählte Profil angezeigt -->
                 <span>Wähle ein Profil</span>
             </button>
-            <div class="dropdown-content" id="dropdown-content">
-                <!-- Dynamisch durch JavaScript gefüllt -->
-            </div>
+            <div class="dropdown-content" id="dropdown-content"></div>
         </div>
         <button class="load-btn">Load</button>
     </div>
+</div>
 
-    <script src="script.js"></script>
-    </body>
+<script src="script.js"></script>
+</body>
 </html>

@@ -1,5 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
     loadProfiles();
+
+    const sidebar = document.querySelector('.sidebar');
+    const toggleBtn = document.querySelector('.sidebar-toggle-btn');
+
+    // Event Listener für das Ein- und Ausfahren der Sidebar
+    toggleBtn.addEventListener('click', function() {
+        sidebar.classList.toggle('collapsed');
+    });
+
+    // Wenn die Sidebar eingeklappt ist, deaktivieren wir die Buttons
+    sidebar.addEventListener('transitionend', function() {
+        const buttons = sidebar.querySelectorAll('.btn');
+        if (sidebar.classList.contains('collapsed')) {
+            buttons.forEach(button => {
+                button.style.pointerEvents = 'none'; // Buttons deaktivieren
+                button.style.opacity = '0.5'; // Buttons weniger sichtbar machen
+            });
+        } else {
+            buttons.forEach(button => {
+                button.style.pointerEvents = 'auto'; // Buttons aktivieren
+                button.style.opacity = '1'; // Buttons normal sichtbar machen
+            });
+        }
+    });
 });
 
 function loadProfiles() {
@@ -12,7 +36,7 @@ function loadProfiles() {
             let profiles = xmlDoc.getElementsByTagName('profile');
             let dropdownContent = document.getElementById('dropdown-content');
             let selectedProfile = document.getElementById('selected-profile');
-            
+
             for (let i = 0; i < profiles.length; i++) {
                 let name = profiles[i].getElementsByTagName('name')[0].childNodes[0].nodeValue;
                 let imgSrc = `Profiles/${name}.png`;
@@ -46,3 +70,8 @@ function loadProfiles() {
         })
         .catch(error => console.log('Error loading XML:', error));
 }
+
+// Todo ein ausfahren mit pfeil drehung animation
+// Todo einbauen des config buttons mit dem Bild gear.png
+
+//
