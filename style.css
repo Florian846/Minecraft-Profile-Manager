@@ -42,7 +42,7 @@ body {
 }
 
 .sidebar.collapsed {
-    width: 50px; /* Sidebar wird eingeclappt */
+    width: 1vw; /* Sidebar wird eingeclappt */
     font-family: 'Minecraft', sans-serif; /* Minecraft-Schriftart */
 }
 
@@ -81,9 +81,9 @@ body {
     text-align: right;
     border: none;
     cursor: pointer;
-    width: 100%;
     font-size: calc(16px * var(--scale-factor));
-    padding: calc(10px * var(--scale-factor));
+    width: 2vw;
+    height: 2vw;
     transform: rotate(0deg);
     transition: transform 0.3s ease-in-out;
 
@@ -94,7 +94,7 @@ body {
 }
 
 
-.sidebar.collapsed + .sidebar-toggle-btn {
+.sidebar.collapsed .sidebar-toggle-btn {
     transform: rotate(180deg); /* Pfeil zeigt nach links */
 }
 
@@ -104,14 +104,13 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: calc(100% - 220px);
+    width: 100%;
     padding: 20px;
 }
 
 .bottom-bar {
     position: fixed;
     bottom: 0;
-    left: 220px;
     width: calc(100% - 220px);
     padding: 10px;
     background-color: #333;
@@ -129,6 +128,8 @@ body {
     cursor: pointer;
     margin-left: 20px;
     font-family: 'MinecrafterAlt', sans-serif;
+    width: 8vw;
+    height: 4vh;
 }
 
 .load-btn:hover {
@@ -143,13 +144,15 @@ body {
 .dropbtn {
     background-color: #4CAF50;
     color: white;
-    padding: 10px;
-    font-size: 16px;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     font-family: 'MinecrafterAlt', sans-serif;
+    padding: calc(10px * var(--scale-factor)) calc(20px * var(--scale-factor));
+    font-size: calc(6px * var(--scale-factor));
+    height: 4vh;
+    width: 10vw
 }
 
 .dropbtn img {
@@ -188,4 +191,32 @@ body {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+.settings-btn {
+    background-color: transparent;
+    background-image: url("../resources/gear.png");
+    background-size: 2vw 2vw;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    width: 3vw;
+    height: 3vw;
+    transition: transform 0.3s ease;
+
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+}
+
+.settings-btn:hover {
+    transform: scale(1.1);
+}
+.sidebar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sidebar.collapsed .settings-btn {
+    visibility: hidden;
 }
